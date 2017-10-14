@@ -1,9 +1,18 @@
 <div class="well">
 
    <%= form_for @activity do |f|%>
+
+    <p>
+      <%= f.label "Case Manager"%><br>
+      <%= f.collection_select(:manager_id, Manager.all, :id, :first_name, {:class =>'form-control'}) %>
+   </p>
    <p>
       <%= f.label :client_id %><br>
       <%= f.collection_select(:client_id, Client.all, :id, :initials, {:class =>'form-control'}) %>
+   </p>
+    <p>
+      <%= f.label "Service Provider" %><br>
+      <%= f.collection_select(:provider_id, Provider.all, :id, :name, {:class =>'form-control'}) %>
    </p>
    <p>
       <%= f.label "Activity Type"%><br>
@@ -11,7 +20,7 @@
    </p>
    <p>
       <%= f.label :start_date %>
-      <%= f.date_select :start_date %>
+      <%= f.datetime_select :start_date %>
    </p>
     <p>
       <%= f.label :duration %><br>

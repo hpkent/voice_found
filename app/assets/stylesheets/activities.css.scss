@@ -1,0 +1,97 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.norm {
+  font-size: 16px;
+  font-family: verdana, arial, helvetica, sans-serif;
+
+}
+
+.normheading {
+  font-size: 20px;
+  font-family: verdana, arial, helvetica, sans-serif;
+
+}
+
+.btn-grey-padded {
+  margin-left: 2px;
+}
+
+.btn-padded {
+  margin: 2px 2px 2px 2px;
+  background-color: #003b66;
+  color: #f2f2f2;
+
+}
+#larger-text {
+  font-size: 24px;
+}
+
+#nav-for-buttons{
+  font-size: 14px;
+
+}
+
+#light-blue{
+  background-color: #dbe7f0;
+}
+
+.nopadding{
+ padding-left:0;
+ padding-right: 0;
+
+}
+
+.checkbox {
+  background-color: #00599A;
+
+}
+
+.bench{
+  margin:0;
+  display: inline-block;
+  padding-left: 5px;
+}
+
+.no_meeting_flag {
+  display: inline-block;
+}
+
+.well {
+  background-color: #d9d9d9;
+}
+
+.form-edits{
+  font-size: 13px;
+  line-height:18px;
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+.form-edits-s{
+  font-size: 13px;
+  line-height:18px;
+  margin-bottom: 0;
+}
+
+#students_sittings_sitting_id{
+  font-size: 18px;
+}
+
+.input-disabled{
+  text-decoration: line-through;
+}
+
+.select_student_group_form{
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+.selected_student_jquery{
+  background:  #b3e6b3;
+}
+
+.unselected_student_jquery{
+  background:   #ffb3b3;
+}

@@ -20,39 +20,39 @@
                <th>Service Provider</th>
                <th>Start_Date</th>
                <th>Activity</th>
-               <th>Duration(hr)</th>
+               <th>Duration</th>
                <th>Edit</th>
-               <th>Delete</th>
+               <th>Delete2</th>
             </tr>
          </thead>
          <% @activities.each do |activity| %>
           <tr>
             <td id="name">
               <%=Client.find(activity.client_id).first_name%>
-           </td>
-           <td id="name">
-              <%=Manager.find(activity.manager_id).first_name%>
-           </td>
+            </td>
             <td id="name">
-              <%=Provider.find(activity.provider_id).name%>
-           </td>
-           <td id="name">
+              <%=Manager.find(activity.manager_id).first_name%>
+            </td>
+            <td id="name">
+              <h1> test</h1>
+            </td>
+            <td id="name">
               <%=activity.start_date.strftime("%A, %B %-d, %Y")%>
-           </td>
-           <td>
+            </td>
+            <td>
               <%=ActivityType.find(activity.activity_type_id).name%>
-           </td>
-           <td>
-              <%=activity.duration.to_d%>
-           </td>
-           <td><%= button_to('Edit', edit_activity_path(activity), :class => 'btn btn-secondary btn-sm')%>
-           </td>
-           <td><%= button_to 'Delete', activity_path(activity), :class => 'btn btn-secondary btn-sm',
+            </td>
+            <td>
+              <%=activity.duration%>
+            </td>
+            <td><%= button_to('Edit', edit_activity_path(activity), :class => 'btn btn-secondary btn-sm')%>
+            </td>
+            <td><%= button_to 'Delete', activity_path(activity), :class => 'btn btn-secondary btn-sm',
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %></td>
-               </td>
-           <%end%>
+            </td>
+          </tr>
+        <%end%>
       </table>
    </div>
 </div>
-

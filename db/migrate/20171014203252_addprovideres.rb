@@ -1,0 +1,5 @@
+class Addprovideres < ActiveRecord::Migration[5.1]
+  def change
+    add_column :activites, :provider_id, :integer
+  end
+end
