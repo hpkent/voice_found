@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
   resources :activities
-  root to: 'activities#new'
+  resources :records
 
-  post '/activities/:id/edit' => 'activities#edit'
-  post '/activities/:id/update' => 'activities#update'
-  post '/activities/new' => 'activities#new'
+  root to: 'records#index'
+
 
 end

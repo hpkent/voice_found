@@ -1,0 +1,2 @@
+class RecordActivity < ApplicationRecord
+end

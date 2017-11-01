@@ -1,0 +1,32 @@
+<div class="well">
+
+   <%= form_for @record do |f|%>
+
+    <p>
+
+      Case Manager: <%= f.collection_select(:manager_id, Manager.all, :id, :first_name, {:class =>'form-control'}) %>
+   </p>
+   <p>
+
+      Client Id: <%= f.collection_select(:client_id, Client.all, :id, :initials, {:class =>'form-control'}) %>
+   </p>
+   <p>
+      <%= f.label :start_date %>
+      <%= f.date_select :start_date %>
+   </p>
+   <p>
+    Test
+   </p>
+
+    <%= f.fields_for :activities, Activity.new do |activity| %>
+      <p>
+        Activity: <%= activity.text_field :duration %>
+        <%= activity.hidden_field :manager_id => manager_id %>
+
+      </p>
+    <%end%>
+   <div id= "buttonId" class="actions">
+      <%= f.submit "Submit", class:"btn btn-primary btn-padded" %>
+   </div>
+   <% end %>
+</div>

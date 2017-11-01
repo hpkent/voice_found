@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171014220113) do
+ActiveRecord::Schema.define(version: 20171101210650) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "start_date"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20171014220113) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "provider_id"
+    t.integer "record_id"
   end
 
   create_table "activity_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -47,9 +48,37 @@ ActiveRecord::Schema.define(version: 20171014220113) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "partners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "org_name"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "providers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "telephone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "record_activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "record_id"
+    t.integer "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "records", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "client_id"
+    t.integer "manager_id"
+    t.text "notes"
+    t.text "steps_taken"
+    t.integer "risk_level_start"
+    t.integer "risk_level_end"
+    t.boolean "closed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
