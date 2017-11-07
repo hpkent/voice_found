@@ -3,33 +3,48 @@
    <%= form_for @record do |f|%>
 
     <p>
-
-      Case Manager: <%= f.collection_select(:manager_id, Manager.all, :id, :first_name, {:class =>'form-control'}) %>
-   </p>
-   <p>
-
-      Client Id: <%= f.collection_select(:client_id, Client.all, :id, :initials, {:class =>'form-control'}) %>
-   </p>
-   <p>
+      <%= f.label 'Case Manger' %>
+      <%= f.collection_select(:manager_id, Manager.all, :id, :first_name, {:class =>'form-control'}) %>
+    </p>
+    <p>
+      <%= f.label :client_id %>
+      <%= f.collection_select(:client_id, Client.all, :id, :initials, {:class =>'form-control'}) %>
+    </p>
+    <p>
       <%= f.label :start_date %>
       <%= f.date_select :start_date %>
-   </p>
-   <p>
-    Test
-   </p>
+    </p>
+    <p>
+      <%= f.label :steps_taken %>
+      <%= f.text_field :steps_taken %>
+    </p>
+    <p>
+      <%= f.label :notes %>
+      <%= f.text_field :notes %>
+    </p>
+    <p>
+      <%= f.label :risk_level_start %>
+      <%= f.collection_select(:risk_level_start, RiskLevels.all, :id, :name, {:class => 'form-control'})%>
+    </p>
 
+    <p>
+      <%= f.label :stage %>
+      <%= f.collection_select(:stage_id, Stage.all, :id, :name, {:class => 'form-control'})%>
+    </p>
     <%= f.fields_for :activities, Activity.new do |activity| %>
+      <%=activity.label 'Activities' %>
       <p>
-        Activity: <%= activity.text_field :duration %>
+        Type: <%=activity.collection_select(:activity_type_id, ActivityType.all, :id, :name, {:class =>'form-control'})%>
+        Duration: <%= activity.text_field :duration %>
+
         <%= activity.hidden_field :manager_id, :value => 1 %>
         <%= activity.hidden_field :client_id, :value => 1 %>
         <%= activity.hidden_field :provider_id, :value => 1 %>
         <%= activity.hidden_field :activity_type_id, :value => 1 %>
-
       </p>
     <%end%>
-   <div id= "buttonId" class="actions">
+    <div id= "buttonId" class="actions">
       <%= f.submit "Submit", class:"btn btn-primary btn-padded" %>
-   </div>
-   <% end %>
+    </div>
+  <% end %>
 </div>
