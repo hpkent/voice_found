@@ -1,48 +1,36 @@
 <div class="well">
 
-   <%= form_for @record do |f|%>
+    <%= simple_form_for(@record, html: { class: 'form-horizontal' }) do |f| %>
 
     <p>
-      <%= f.label 'Case Manger' %>
-      <%= f.collection_select(:manager_id, Manager.all, :id, :first_name, {:class =>'form-control'}) %>
+      <%= f.association :manager, label_method: :first_name, value_method: :id, include_blank: false %>
     </p>
     <p>
-      <%= f.label :client_id %>
-      <%= f.collection_select(:client_id, Client.all, :id, :initials, {:class =>'form-control'}) %>
+      <%= f.association :client, label_method: :first_name, value_method: :id, include_blank: false %>
     </p>
     <p>
-      <%= f.label :start_date %>
-      <%= f.date_select :start_date %>
+      <%= f.input :start_date, as: :date, order: [:day, :month, :year] %>
     </p>
     <p>
-      <%= f.label :steps_taken %>
-      <%= f.text_field :steps_taken %>
+      <%= f.input :steps_taken, as: :text, :input_html => {:rows => 5}  %>
     </p>
     <p>
-      <%= f.label :notes %>
-      <%= f.text_field :notes %>
+      <%= f.input :notes, as: :text, :input_html => {:rows => 5}  %>
     </p>
     <p>
-      <%= f.label :risk_level_start %>
-      <%= f.collection_select(:risk_level_start, RiskLevels.all, :id, :name, {:class => 'form-control'})%>
+      <%= f.association :stage, include_blank: false%>
     </p>
+    <h3>Activities</h3>
 
-    <p>
-      <%= f.label :stage %>
-      <%= f.collection_select(:stage_id, Stage.all, :id, :name, {:class => 'form-control'})%>
-    </p>
-    <%= f.fields_for :activities, Activity.new do |activity| %>
-      <%=activity.label 'Activities' %>
-      <p>
-        Type: <%=activity.collection_select(:activity_type_id, ActivityType.all, :id, :name, {:class =>'form-control'})%>
-        Duration: <%= activity.text_field :duration %>
+    <div id="activities">
+      <%= f.simple_fields_for :activities do |activity| %>
+        <%= render 'activity_fields', :f => activity %>
+      <%end%>
+      <div class="btn btn-primary" type="button">
+        <%=link_to_add_association 'Add New Activity', f, :activities%>
+      </div>
+    </div>
 
-        <%= activity.hidden_field :manager_id, :value => 1 %>
-        <%= activity.hidden_field :client_id, :value => 1 %>
-        <%= activity.hidden_field :provider_id, :value => 1 %>
-        <%= activity.hidden_field :activity_type_id, :value => 1 %>
-      </p>
-    <%end%>
     <div id= "buttonId" class="actions">
       <%= f.submit "Submit", class:"btn btn-primary btn-padded" %>
     </div>

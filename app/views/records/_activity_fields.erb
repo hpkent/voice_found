@@ -1,0 +1,16 @@
+
+<div class="nested-fields well well-compact inline-form">
+  <div>
+    <%= f.input :start_date, as: :datetime, order: [:day, :month, :year] %>
+    <%= f.input :activity_type_id, collection: ActivityType.all %>
+    <%= f.input :duration, label: 'Duration (hrs)', :class =>'form-control', :input_html => {:style=> 'width: 150px' }  %>
+    <%= f.hidden_field :manager_id, :value => 1 %>
+    <%= f.hidden_field :client_id, :value => 1 %>
+    <%= f.hidden_field :provider_id, :value => 1 %>
+    <p>
+    <%= link_to_remove_association f do %>
+      <i class="glyphicon glyphicon-remove"></i>
+    <%end%>
+    </p>
+   </div>
+</div>

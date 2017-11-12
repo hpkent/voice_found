@@ -1,0 +1,20 @@
+
+<table>
+  <tr>
+    <td> Name</td>
+    <td><%=@record.client_id%></td>
+  </tr>
+</table>
+
+
+<table>
+  <%=@record.activities.each do |activity|%>
+    <tr>
+      <td><%= activity.start_date%><td>
+    </tr>
+    <%end%>
+</table>
+
+<%=link_to 'Edit', edit_record_path(@record)%>
+<%= '|' %>
+<%= link_to 'Back', records_path %>

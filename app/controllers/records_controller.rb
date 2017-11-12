@@ -1,6 +1,7 @@
 class RecordsController < ApplicationController
   require 'time'
   require 'date'
+  helper :records
 
   def index
     @records = Record.all
@@ -19,7 +20,7 @@ class RecordsController < ApplicationController
   end
 
   def create
-    @record = Record.new(allowed_params)
+    @record = Record.new(record_params)
     if @record.save
       redirect_to records_path
     else
@@ -29,7 +30,7 @@ class RecordsController < ApplicationController
 
   def update
     @record = Record.find(params[:id])
-    if @record.update_attributes(allowed_params)
+    if @record.update_attributes(record_params)
       redirect_to @record, notice: 'Successfully update case'
     else
       render :edit
@@ -43,8 +44,8 @@ class RecordsController < ApplicationController
   end
 
   private
-    def allowed_params
-      params.require(:record).permit(:start_date, :end_date, :manager_id, :client_id, :notes, :steps_taken, :risk_level_start, :risk_level_end, :closed, :created_at, :updated_at, activities_attributes: [:id, :state_date, :end_date, :duration, :activity_type_id, :client_id, :manager_id, :provider_id, :created_at, :updated_at, :_destroy])
+    def record_params
+      params.require(:record).permit(:start_date, :end_date, :manager_id, :client_id, :notes, :steps_taken, :risk_level_start, :risk_level_end, :closed, :stage_id, :created_at, :updated_at, activities_attributes: [:id, :state_date, :end_date, :duration, :activity_type_id, :client_id, :manager_id, :provider_id, :created_at, :updated_at, :_destroy])
     end
 
 end

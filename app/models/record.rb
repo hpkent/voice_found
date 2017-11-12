@@ -1,8 +1,7 @@
 class Record < ApplicationRecord
-  belongs_to :manager
-  belongs_to :client
-  belongs_to :stages
-  has_many :risk_levels
+  belongs_to :manager, required: false
+  belongs_to :client, required: false
+  belongs_to :stage, required: false
   has_many :activities, inverse_of: :record
-  accepts_nested_attributes_for :activities
+  accepts_nested_attributes_for :activities, :allow_destroy => true
 end
