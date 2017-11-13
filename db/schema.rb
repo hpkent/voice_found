@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112192846) do
+ActiveRecord::Schema.define(version: 20171113211714) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "start_date"
@@ -32,12 +32,41 @@ ActiveRecord::Schema.define(version: 20171112192846) do
     t.string "notes"
   end
 
+  create_table "age_range_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "clients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "initials"
     t.string "phone_number"
     t.string "birth_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "age_range_type_id"
+    t.integer "gender_type_id"
+    t.integer "family_type_id"
+    t.integer "relationship_type_id"
+    t.integer "exit_attempt_type_id"
+  end
+
+  create_table "exit_attempt_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "family_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gender_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -83,6 +112,12 @@ ActiveRecord::Schema.define(version: 20171112192846) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "stage_id"
+  end
+
+  create_table "relationship_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "risk_levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
