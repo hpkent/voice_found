@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RiskLevelTypeTest < ActiveSupport::TestCase
+class ClientSubstanceTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

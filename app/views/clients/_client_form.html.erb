@@ -19,19 +19,52 @@
       <%= f.input :birth_date%>
     </p>
     <p>
-      <%= f.association :age_range_type, include_blank: false %>
+      <%=f.input :notes%>
+    </p>
+
+    <p> Department of Justice Questions</p>
+
+    <p>
+      <%= f.input :start_date, label: 'Start Date'%>
     </p>
     <p>
-      <%= f.association :gender_type, include_blank: false %>
+      <%= f.association :age_range_type, include_blank: false, label:'Age' %>
     </p>
     <p>
-      <%= f.association :exit_attempt_type, include_blank: false %>
+      <%= f.association :gender_type, include_blank: false, label: 'Gender Identity' %>
     </p>
-     <p>
-      <%= f.association :family_type, include_blank: false %>
+    <p>
+      <%= f.association :target_groups, as: :check_boxes, include_blank: false, label:'Member fo Specific Target Group' %>
     </p>
-    <div id= "buttonId" class="actions">
-      <%= f.submit "Submit", class:"btn btn-primary btn-padded" %>
+    <p>
+      <%= f.association :family_type, include_blank: false, label: 'Family Status' %>
+    </p>
+    <p>
+      <%= f.association :relationship_type, include_blank: false, label: 'Relationship Status' %>
+    </p>
+    <p>
+      <%= f.association :referrals, as: :check_boxes, include_blank: false, label:'Referral Made By' %>
+    </p>
+    <p>
+      <%= f.association :exit_attempt_type, include_blank: false, label: 'Number of Exit Attempts' %>
+    </p>
+    <p>
+      <%= f.association :support_networks, as: :check_boxes, include_blank: false, label: 'What Support Nework do they have?' %>
+    </p>
+    <p>
+      <%= f.association :substances, as: :check_boxes, include_blank: false, label: 'Are there Substance Abuse Issues?' %>
+    </p>
+    <p>
+      <%= f.input :exit_reason, label: "What is they main reason for seeking help to exit prostitution?"%>
+    </p>
+    <p>
+      <%= f.association :outcomes, as: :check_boxes, include_blank: false, label: 'Outcomes' %>
+    </p>
+    <p>
+      <%= f.input :impact_notes, label: 'Describe Changes/Impacts'%>
+    </p>
+    <div>
+      <%= f.button :submit%>
     </div>
   <% end %>
 </div>

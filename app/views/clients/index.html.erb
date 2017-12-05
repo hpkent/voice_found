@@ -26,11 +26,11 @@
             <td id="name">
               <%=client.first_name%>
            </td>
-           <td><%= button_to('Edit', edit_client_path(client), :class => 'btn btn-secondary btn-sm')%>
+           <td><%= button_to('Edit', edit_client_path(client), method: :get, :class => 'btn btn-secondary btn-sm')%>
            </td>
-           <td><%= button_to 'Delete', client_path(client), :class => 'btn btn-secondary btn-sm',
+           <td><%= button_to 'Delete', client_path(client), method: :get, :class => 'btn btn-secondary btn-sm',
                 method: :delete,
-                data: { confirm: 'Are you sure?' } %>
+                data: { confirm: 'Are you sure you want to delete this client?' } %>
             </td>
            <%end%>
          </tr>
