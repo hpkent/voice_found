@@ -24,7 +24,7 @@ class RecordsController < ApplicationController
     if @record.save
       redirect_to records_path
     else
-      redirect_to records_path
+      render :new
     end
   end
 
@@ -45,7 +45,7 @@ class RecordsController < ApplicationController
 
   private
     def record_params
-      params.require(:record).permit(:start_date, :end_date, :manager_id, :client_id, :notes, :steps_taken, :risk_level_start, :risk_level_end, :closed, :stage_id, :created_at, :updated_at, activities_attributes: [:id, :state_date, :end_date, :duration, :activity_type_id, :client_id, :manager_id, :provider_id, :created_at, :updated_at, :_destroy])
+      params.require(:record).permit(:start_date, :end_date, :manager_id, :client_id, :notes, :steps_taken, :risk_level_start_id, :risk_level_end_id, :closed, :stage_id, :created_at, :updated_at, activities_attributes: [:id, :start_date, :end_date, :duration, :activity_type_id, :client_id, :manager_id, :provider_id, :created_at, :updated_at, :_destroy])
     end
 
 end

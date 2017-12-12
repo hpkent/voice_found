@@ -6,12 +6,12 @@
       <%= f.association :manager, label_method: :first_name, value_method: :id, include_blank: false %>
     </p>
     <p>
-      <%= f.association :client, label_method: :first_name, value_method: :id, include_blank: false %>
+      <%= f.association :client, label_method: :first_name, value_method: :id, required: true%>
     </p>
     <p>
-      <%= f.association :risk_level_start, include_blank: false %>
+      <%= f.association :risk_level_start,  required: true %>
     <p>
-      <%= f.input :start_date, as: :date, order: [:day, :month, :year] %>
+      <%= f.input :start_date, as: :date, order: [:day, :month, :year], required: true %>
     </p>
     <h3>Activities</h3>
 
@@ -30,10 +30,10 @@
       <%= f.input :notes, as: :text, :input_html => {:rows => 5}  %>
     </p>
     <p>
-      <%= f.association :risk_level_end, include_blank: false %>
+      <%= f.association :risk_level_end, required: true %>
     <p>
     <p>
-      <%= f.association :stage, include_blank: false%>
+      <%= f.association :stage, required: true%>
     </p>
     <div>
       <%= f.button :submit%>

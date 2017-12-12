@@ -1,20 +1,72 @@
-
-<table>
-  <tr>
-    <td> Name</td>
-    <td><%=@record.client_id%></td>
-  </tr>
-</table>
-
-
-<table>
-  <%=@record.activities.each do |activity|%>
-    <tr>
-      <td><%= activity.start_date%><td>
-    </tr>
-    <%end%>
-</table>
-
-<%=link_to 'Edit', edit_record_path(@record)%>
-<%= '|' %>
-<%= link_to 'Back', records_path %>
+<div class="container-fluid">
+   <div id= "links" class="row col-xs-6 actions">
+    <%= button_to('Edit', edit_record_path(@record), method: :get, :class => 'btn  btn-primary pull-right btn-padded')%>
+    <%= button_to('Back', records_path(@record), method: :get, :class => 'btn  btn-primary pull-right btn-padded')%>
+  </div>
+  <div class="row">
+    <div class ="col-xs-1">
+    </div>
+     <div class="col-xs-8">
+        <h2>Record Quick View </h2>
+        <p>
+          <span id="label"> Client Id: </span>
+          <%if @record.client_id != nil%>
+            <span id="name"><%=Client.find(@record.client_id).initials%></span>
+          <%end%>
+        </p>
+        <p>
+          <span id="label"> Start Date: </span>
+          <span id="name"><%=@record.start_date%></span>
+        </p>
+        <p>
+          <span id="label"> Notes: </span>
+          <span id="name"><%=@record.notes%></span>
+        </p>
+        <p>
+          <span id="label"> Start Date: </span>
+          <span id="name"><%=@record.steps_taken%></span>
+        </p>
+        <p>
+          <span id="label"> Risk Level (Start): </span>
+          <%if @record.risk_level_start_id != nil%>
+            <span id="name"><%=RiskLevelStart.find(@record.risk_level_start_id).name%></span>
+          <%end%>
+        </p>
+        <p>
+          <span id="label"> Risk Level (End): </span>
+          <%if @record.risk_level_end_id != nil%>
+            <span id="name"><%=RiskLevelEnd.find(@record.risk_level_end_id).name%></span>
+          <%end%>
+        </p>
+        <p>
+          <span id="label"> Client Stage: </span>
+          <%if @record.stage_id != nil%>
+            <span id="name"><%=Stage.find(@record.stage_id).name%></span>
+          <%end%>
+        </p>
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>Activity Type</th>
+              <th>Date and Time</th>
+              <th>Time (hrs) </th>
+            </tr>
+          </thead>
+          <% @record.activities.each do |record| %>
+            <tr>
+              <td id="name">
+                <%=ActivityType.find(record.activity_type_id).name%>
+              </td>
+              <td id="name">
+                <%=record.start_date%>
+              </td>
+              <td id="name">
+                <%=record.duration%>
+              </td>
+            </tr>
+          <%end%>
+        </table>
+    </div>
+  </div>
+  </div>
+</div>
