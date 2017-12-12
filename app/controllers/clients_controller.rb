@@ -24,7 +24,7 @@ class ClientsController < ApplicationController
     if @client.save
       redirect_to clients_path
     else
-      redirect_to clients_path
+      render :new
     end
   end
 
@@ -45,7 +45,7 @@ class ClientsController < ApplicationController
 
   private
     def client_params
-      params.require(:client).permit(:first_name, :last_name, :initials, :phone_number, :birth_date, :age_range_type_id, :gender_type_id, :exit_attempt_type_id, :family_type_id, :relationship_type_id, :start_date, :end_date, :manager_id, target_group_ids: [], referral_ids: [], support_network_ids: [], substance_ids: [], outcome_ids: [])
+      params.require(:client).permit(:first_name, :last_name, :initials, :phone_number, :birth_date, :age_range_type_id, :gender_type_id, :exit_attempt_type_id, :family_type_id, :relationship_type_id, :start_date, :end_date, :manager_id, :notes, :participation_type_id, :exit_reason, :change_type_id, :impact_notes, target_group_ids: [], referral_ids: [], support_network_ids: [], substance_ids: [], outcome_ids: [])
 
     end
 

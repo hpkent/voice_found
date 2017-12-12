@@ -4,19 +4,16 @@
       <%= button_to('New Client', new_client_path, method: :get, :class => 'btn  btn-primary pull-right btn-padded')  %>
     </div>
   </div>
-  <div class="row col-xs-12 col-md-8 ">
-    <div class="pull-left">
-      <%=image_tag("women.png", height: '100', width: '100', :class => "rounded")%>
-    </div>
-    <div>
-       <h4>Clients</h4>
-    </div>
+  <div class="row col-xs-2">
+      <%=image_tag("women2.png", :class => "img-rounded img-responsive")%>
   </div>
-  <div class="row col-xs-12 col-md-8">
+  <div class="row col-xs-12">
       <table id="student-table" class="table table-condensed">
          <thead>
             <tr>
-               <th>Client Name</th>
+               <th>First Name</th>
+               <th>ID</th>
+               <th>Quick View</th>
                <th>Edit</th>
                <th>Delete</th>
             </tr>
@@ -25,6 +22,11 @@
           <tr>
             <td id="name">
               <%=client.first_name%>
+           </td>
+           <td id="name">
+              <%=client.initials%>
+           </td>
+           <td><%= button_to('Quick View', client_path(client), method: :get, :class => 'btn btn-secondary btn-sm')%>
            </td>
            <td><%= button_to('Edit', edit_client_path(client), method: :get, :class => 'btn btn-secondary btn-sm')%>
            </td>

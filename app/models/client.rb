@@ -6,6 +6,8 @@ class Client < ApplicationRecord
   belongs_to :relationship_type, required: false
   belongs_to :gender_type, required: false
   belongs_to :risk_level_type, required: false
+  belongs_to :participation_type, required: false
+  belongs_to :change_type, required: false
 
   has_many :client_target_groups
   has_many :target_groups, through: :client_target_groups
@@ -27,6 +29,7 @@ class Client < ApplicationRecord
   has_many :outcomes, through: :client_outcomes
   accepts_nested_attributes_for :client_outcomes
 
-  # validates :first_name, presence: true
+  validates :first_name, presence: true
+  validates :initials, presence: true
 end
 

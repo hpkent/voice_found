@@ -1,11 +1,62 @@
-
-<table>
-  <tr>
-    <td> Name</td>
-    <td><%=@client.first_name%></td>
-  </tr>
-</table>
-
-<%=link_to 'Edit', edit_client_path(@client)%>
-<%= '|' %>
-<%= link_to 'Back', clients_path %>
+<div class="container-fluid">
+   <div id= "links" class="row col-xs-6 actions">
+    <%= button_to('Edit', edit_client_path(@client), method: :get, :class => 'btn  btn-primary pull-right btn-padded')%>
+    <%= button_to('Back', clients_path(@client), method: :get, :class => 'btn  btn-primary pull-right btn-padded')%>
+  </div>
+  <div class="row">
+    <div class ="col-xs-1">
+    </div>
+     <div class="col-xs-8">
+        <h2>Client Quick View </h2>
+        <p>
+          <span id="label"> First Name: </span>
+          <span id="name"><%=@client.first_name%></span>
+        </p>
+        <p>
+          <span id="label"> Last Name: </span>
+          <span id="name"><%=@client.last_name%></span>
+        </p>
+        <p>
+          <span id="label"> Client ID: </span>
+          <span id="name"><%=@client.initials%></span>
+        </p>
+        <p>
+          <span id="label"> Phone Number(s): </span>
+          <span id="name"><%=@client.phone_number%></span>
+        </p>
+        <p>
+          <span id="label"> Age Range: </span>
+          <%if @client.age_range_type_id != nil%>
+            <span id="name"><%=AgeRangeType.find(@client.age_range_type_id).name%></span>
+          <%end%>
+        </p>
+        <p>
+          <span id="label"> Gender: </span>
+          <%if @client.gender_type_id != nil%>
+            <span id="name"><%=GenderType.find(@client.gender_type_id).name%></span>
+          <%end%>
+        </p>
+        <p>
+          <span id="label"> Family: </span>
+          <%if @client.family_type_id != nil%>
+            <span id="name"><%=FamilyType.find(@client.family_type_id).name%></span>
+          <%end%>
+        </p>
+        <p>
+          <span id="label"> Relationship: </span>
+          <%if @client.relationship_type_id != nil%>
+            <span id="name"><%=RelationshipType.find(@client.relationship_type_id).name%></span>
+          <%end%>
+        </p>
+        <p>
+          <span id="label"> Notes: </span>
+          <span id="name"><%=@client.notes%></span>
+        </p>
+        <p>
+          <span id="label"> Start Date: </span>
+          <span id="name"><%=@client.start_date%></span>
+        </p>
+    </div>
+  </div>
+  </div>
+</div>
