@@ -1,11 +1,10 @@
 // import the CSS framework
 
-@import "bootstrap-sprockets";
 @import "bootstrap";
 
 // make all images responsive by default
 img {
-  @extend .img-responsive;
+  @extend .img-responsive !optional;
   margin: 0 auto;
   }
 // override for the 'Home' navigation link
@@ -13,9 +12,24 @@ img {
   font-size: inherit;
   }
 .navbar-custom {
-    background-color: #7D4979;
-    border-color: #E7E7E7;
+    background-color: #ce92d3;
+    border-color: #ce92d3;
+    color: black;
 }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: black;
+}
+
+//***nav-bar***//
+
+.nav-tabs > li > a:hover{
+  background-color: #eedbf0 !important;
+    border: medium none;
+    border-radius: 0;
+    color:#fff;
+}
+
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
@@ -40,7 +54,7 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #d9f0f2;
+  background-color: #FEFEFE;
   padding-bottom: 80px;
   width: 100%;
   height: 100%;
@@ -50,7 +64,7 @@ main {
   }
  html, body {
   height: 100%;
-  background-color: #d9f0f2;
+  background-color: #FEFEFE;
 
   }
 section {
@@ -68,7 +82,6 @@ section {
 }
 .authform form {
   @extend .well;
-  @extend .well-lg;
   padding-bottom: 40px;
 }
 .authform .right {
@@ -91,7 +104,6 @@ section {
 .button-xs {
   @extend .btn;
   @extend .btn-primary;
-  @extend .btn-xs;
 }
 
 #td-align{
@@ -165,10 +177,20 @@ div.btn-group form{
   color: #FFFFFF;
 
 }
+.btn-primary {
+    color: #fff;
+    background-color: #00747A;
+    border-color: #00747A; /*set the color you want here*/
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #009199;
+    border-color: #009199; /*set the color you want here*/
+}
 
-//green: #117b70 or #388982
+//turqoise: #00747A
 //pink: #d9bfd7
-//dark purple: #3C033C
+//dark purple: #37173A
 // light blue: #d9f0f2
 
 
@@ -208,7 +230,7 @@ div.btn-group form{
 }
 
 .well {
-  background-color: #d9d9d9;
+  background-color: #be6dc5;
 }
 
 .form-edits{

@@ -16,7 +16,7 @@
         </p>
         <p>
           <span id="label"> Start Date: </span>
-          <span id="name"><%=@record.start_date%></span>
+          <span id="name"><%=@record.start_date.strf(%></span>
         </p>
         <p>
           <span id="label"> Notes: </span>
@@ -52,6 +52,7 @@
               <th>Time (hrs) </th>
             </tr>
           </thead>
+          <%count = 0%>
           <% @record.activities.each do |record| %>
             <tr>
               <td id="name">
@@ -62,9 +63,14 @@
               </td>
               <td id="name">
                 <%=record.duration%>
+                <%count += record.duration%>
               </td>
             </tr>
           <%end%>
+            <tr>
+              <th>Total</th>
+              <td></td>
+              <th><%=count%></th>
         </table>
     </div>
   </div>

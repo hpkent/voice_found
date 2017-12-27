@@ -1,7 +1,7 @@
 
 <div class="nested-fields well well-compact inline-form">
   <div>
-    <%= f.input :start_date, as: :datetime, order: [:day, :month, :year], required: true %>
+    <%= f.input :start_date, ampm: true, as: :datetime, order: [:day, :month, :year], required: true %>
     <%= f.input :activity_type_id, collection: ActivityType.all, required: true %>
     <%= f.input :duration, label: 'Duration (hrs)', :class =>'form-control', :input_html => {:style=> 'width: 150px' }, required: true  %>
     <%= f.hidden_field :manager_id, :value => 1 %>
