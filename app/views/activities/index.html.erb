@@ -25,9 +25,9 @@
             <td id="name">
               <%=Client.find(client.client_id).first_name%>
            </td>
-           <td><%= button_to('Edit', edit_client_path(client), :class => 'btn btn-secondary btn-sm')%>
+           <td><%= button_to('Edit', edit_client_path(client), :class => 'btn btn-default btn-sm')%>
            </td>
-           <td><%= button_to 'Delete', client_path(client), :class => 'btn btn-secondary btn-sm',
+           <td><%= button_to 'Delete', client_path(client), :class => 'btn btn-default btn-sm',
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %></td>
                </td>

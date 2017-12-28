@@ -54,7 +54,7 @@
         </p>
         <p>
           <span id="label"> Start Date: </span>
-          <span id="name"><%=@client.start_date%></span>
+          <span id="name"><%=@client.start_date.strftime("%b %d, %y")%></span>
         </p>
     </div>
   </div>
