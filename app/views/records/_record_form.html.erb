@@ -3,7 +3,7 @@
     <%= simple_form_for(@record, html: { class: 'form-horizontal' }) do |f| %>
 
     <p>
-      <%= f.association :manager, label_method: :first_name, value_method: :id, include_blank: false %>
+      <%= f.hidden_field :manager_id, :value => get_manager_id(current_user)%>
     </p>
     <p>
       <%= f.association :client, label_method: :first_name, value_method: :id, required: true%>

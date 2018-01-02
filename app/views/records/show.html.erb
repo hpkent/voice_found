@@ -15,6 +15,12 @@
           <%end%>
         </p>
         <p>
+          <span id="label"> Manager: </span>
+          <%if @record.manager_id != nil%>
+            <span id="name"><%=Manager.find(@record.manager_id).first_name%></span>
+          <%end%>
+        </p>
+        <p>
           <span id="label"> Start Date: </span>
           <span id="name"><%=@record.start_date.strftime("%b %d, %y")%></span>
         </p>
