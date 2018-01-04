@@ -4,7 +4,8 @@ class RecordsController < ApplicationController
   helper :records
 
   def index
-    @records = Record.all
+    @recent_records = Record.recent_records
+    @older_records  = Record.older_records
   end
 
   def new
@@ -31,7 +32,7 @@ class RecordsController < ApplicationController
   def update
     @record = Record.find(params[:id])
     if @record.update_attributes(record_params)
-      redirect_to @record, notice: 'Successfully update case'
+      redirect_to @record, notice: 'Successfully updated record'
     else
       render :edit
     end

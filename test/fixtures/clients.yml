@@ -4,8 +4,24 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+melinda:
+  first_name: 'Melinda'
+  last_name: 'Smith'
+  initials: 'SM'
+  phone_number: '123-123-1345'
+  birth_date: ''
+  age_range_type_id: 1
+  gender_type_id: 1
+  family_type_id: 1
+  relationship_type_id: 1
+  exit_attempt_type_id: 1
+  start_date: '2017-01-31'
+  impact_notes: 'test'
+  notes: 'test'
+  exit_reason: 'test'
+  participation_type_id: 1
+  change_type_id: 1
+
+sarah:
+  first_name: 'Sarah'
+  last_name: 'Daniels'

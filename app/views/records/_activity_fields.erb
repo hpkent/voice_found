@@ -4,9 +4,7 @@
     <%= f.input :start_date, ampm: true, as: :datetime, order: [:day, :month, :year], required: true %>
     <%= f.input :activity_type_id, collection: ActivityType.all, required: true %>
     <%= f.input :duration, label: 'Duration (hrs)', :class =>'form-control', :input_html => {:style=> 'width: 150px' }, required: true  %>
-    <%= f.hidden_field :manager%>
-    <%= f.hidden_field :client%>
-    <%= f.hidden_field :provider_id, :value => 1 %>
+    <%= f.association :provider, label: 'Partner', label_method: :name, value_method: :id%>
     <p>
     <%= link_to_remove_association f do %>
       <i class="glyphicon glyphicon-remove"></i>
